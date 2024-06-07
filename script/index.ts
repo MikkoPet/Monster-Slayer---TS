@@ -16,21 +16,28 @@ class Arena {
     monsterAttack() {
         let monsterPotency = this.defineDamage(10, 15);
         this.playerHealth -= monsterPotency;
+        this.updateHealthDisplay();
+        this.checkPlayerHealth();
     }
 
     playerAttack() {
         let playerPotency = this.defineDamage(8, 15);
         this.monsterHealth -= playerPotency;
+        if (this.checkEnemyHealth()) {return;};
+        this.monsterAttack();
     }
 
     playerSpecialAttack() {
         let playerPotency = this.defineDamage(10, 20);
         this.monsterHealth -= playerPotency;
+        if (this.checkEnemyHealth()) {return;};
+        this.monsterAttack();
     }
 
     playerHeal() {
         let playerPotency = this.defineDamage(8, 15);
         this.playerHealth += playerPotency;
+        this.monsterAttack();
     }
 
     abandon() {
@@ -38,61 +45,39 @@ class Arena {
         this.restartGame();
     }
 
+    checkEnemyHealth() {
+        if (this.monsterHealth <= 0) {
+            alert(`You have slain the monster!`);
+            this.restartGame();
+            return true;
+        }
+    }
+
+    checkPlayerHealth() {
+        if (this.playerHealth <= 0) {
+            alert(`The monster has slain you!`);
+            this.restartGame();
+        }
+    }
+
+    updateHealthDisplay() {
+        displayPlayerHealth.innerText = `Your health: ${this.playerHealth}`;
+        displayMonsterHealth.innerText = `Monster's health: ${this.monsterHealth}`;
+    }
+
     restartGame() {
         this.playerHealth = 100;
         this.monsterHealth = 100;
+        this.updateHealthDisplay();
+        return true;
     }
 }
 
 let game = new Arena;
 
-function updateHealthDisplay() {
-    displayPlayerHealth.innerText = `Your health: ${game.playerHealth}`;
-    displayMonsterHealth.innerText = `Your health: ${game.monsterHealth}`;
-}
 
-function checkPlayerHealth() {
-    if (game.playerHealth <= 0) {
-        console.log(`The monster has slain you!`);
-        game.restartGame();
-    }
-}
-
-function checkEnemyHealth() {
-    if (game.monsterHealth <= 0) {
-        console.log(`You have slain the monster!`);
-        game.restartGame();
-    }
-}
-
-function perTurnRefresh() {
-    updateHealthDisplay();
-    checkEnemyHealth();
-    checkPlayerHealth();
-}
-
-
-function playerAttack() {
-    game.playerAttack();
-    game.monsterAttack();
-    perTurnRefresh();
-}
-
-function specialPlayerAttack() {
-    game.playerSpecialAttack();
-    game.monsterAttack();
-    perTurnRefresh();
-}
-
-function playerHeal() {
-    game.playerHeal();
-    game.monsterAttack();
-    perTurnRefresh();
-}
-
-
-attackBtn.addEventListener("onclick", playerAttack());
-specialAttackBtn.addEventListener("onclick", specialPlayerAttack());
-healBtn.addEventListener("onclick", playerHeal());
-abandonBtn.addEventListener("onclick",game.abandon());
+attackBtn.addEventListener("click", () => game.playerAttack());
+specialAttackBtn.addEventListener("click", () => game.playerSpecialAttack());
+healBtn.addEventListener("click", () => game.playerHeal());
+abandonBtn.addEventListener("click", () => game.abandon());
 
