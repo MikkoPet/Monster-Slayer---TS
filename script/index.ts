@@ -14,14 +14,14 @@ class Arena {
     }
 
     monsterAttack() {
-        let monsterPotency = this.defineDamage(10, 15);
+        let monsterPotency = this.defineDamage(5, 10);
         this.playerHealth -= monsterPotency;
         this.updateHealthDisplay();
         this.checkPlayerHealth();
     }
 
     playerAttack() {
-        let playerPotency = this.defineDamage(8, 15);
+        let playerPotency = this.defineDamage(3, 10);
         this.monsterHealth -= playerPotency;
         if (this.checkEnemyHealth()) {return;};
         this.monsterAttack();
@@ -35,8 +35,7 @@ class Arena {
     }
 
     playerHeal() {
-        let playerPotency = this.defineDamage(8, 15);
-        this.playerHealth += playerPotency;
+        this.playerHealth += 10;
         this.monsterAttack();
     }
 
