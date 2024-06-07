@@ -67,14 +67,21 @@ h1 {
 
 .healthZone div {
     width: 50vw;
+    font-weight: bold;
+    box-shadow: 3px 4px 18px rgba(241, 10, 10, 0.089),
+    14px -6px 25px rgba(58, 15, 247, 0.055),
+    -6px -7px 25px rgba(138, 31, 209, 0.089),
+    -12px 9px 25px rgba(255, 140, 8, 0.041);;
 }
 
 .healthZone > div:first-child {
     background: linear-gradient(to right, rgb(55, 0, 255) 100%, black);
+    color: rgb(183, 183, 233);
 }
 
 .healthZone > div:last-child {
     background: linear-gradient(to left, rgb(255, 0, 0) 100%, black);
+    color: rgb(245, 157, 157);
 }
 
 p {
@@ -87,7 +94,6 @@ button {
     width: 200px;
     font-size: 2rem;
     transition: all 100ms ease-in;
-    border-radius: 5%;
 }
 
 .attackButton {
@@ -124,7 +130,7 @@ button {
 
 .healButton:hover {
     background-color: rgb(102, 80, 204);
-    color:rgb(112, 17, 116);
+    color:rgb(76, 17, 116);
     width: 220px;
 }
 
