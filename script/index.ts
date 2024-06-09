@@ -10,6 +10,8 @@ const abandonBtn: any = document.querySelector(".abandonButton");
 
 const displayPlayerHealth: any = document.querySelector(".playerHealth");
 const displayMonsterHealth: any = document.querySelector(".ghoulHealth");
+const playerHealthBar : any = document.querySelector('.healthzone')?.firstChild;
+const monsterHealthBar : any = document.querySelector('.healthzone')?.lastChild;
 
 class Arena {
     playerHealth: number = 100;
@@ -22,8 +24,8 @@ class Arena {
     monsterAttack() {
         let monsterPotency = this.defineDamage(5, 10);
         this.playerHealth -= monsterPotency;
-        this.updateHealthDisplay();
         this.checkPlayerHealth();
+        this.updateHealthDisplay();
     }
 
     playerAttack() {
@@ -68,6 +70,9 @@ class Arena {
     updateHealthDisplay() {
         displayPlayerHealth.innerText = `Your health: ${this.playerHealth}`;
         displayMonsterHealth.innerText = `Monster's health: ${this.monsterHealth}`;
+
+        playerHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.playerHealth}%, black);`
+        monsterHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.monsterHealth}%, black);`
     }
 
     startGame() {
