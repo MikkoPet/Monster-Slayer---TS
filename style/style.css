@@ -29,7 +29,7 @@ button:hover {
 }
 
 body {
-    background: linear-gradient(to right, rgb(46, 1, 16), rgb(16, 1, 53));
+    background: linear-gradient(to right, rgb(253, 239, 244), rgb(243, 239, 255));
 }
 
 main {
@@ -55,7 +55,7 @@ h1 {
                 14px -6px 25px rgba(58, 15, 247, 0.5),
                 -6px -7px 25px rgba(138, 31, 209, 0.32),
                 -12px 9px 25px rgba(255, 140, 8, 0.37);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .healthZone {
