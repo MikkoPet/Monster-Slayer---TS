@@ -10,8 +10,9 @@ const abandonBtn: any = document.querySelector(".abandonButton");
 
 const displayPlayerHealth: any = document.querySelector(".playerHealth");
 const displayMonsterHealth: any = document.querySelector(".ghoulHealth");
-const playerHealthBar : any = document.querySelector('.healthzone')?.firstChild;
-const monsterHealthBar : any = document.querySelector('.healthzone')?.lastChild;
+const healthZone : any = document.querySelector(".healthZone");
+const playerHealthBar : any = healthZone.querySelector('div:first-child');
+const monsterHealthBar : any = healthZone.querySelector('div:last-child');
 
 class Arena {
     playerHealth: number = 100;
@@ -71,8 +72,8 @@ class Arena {
         displayPlayerHealth.innerText = `Your health: ${this.playerHealth}`;
         displayMonsterHealth.innerText = `Monster's health: ${this.monsterHealth}`;
 
-        playerHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.playerHealth}%, black);`
-        monsterHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.monsterHealth}%, black);`
+        playerHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.playerHealth}%, black ${this.playerHealth + 0.1}%) `;
+        monsterHealthBar.style.background = `linear-gradient(to left, rgb(255, 0, 55) ${this.monsterHealth}%, black ${this.monsterHealth - 0.1}%)`;
     }
 
     startGame() {
