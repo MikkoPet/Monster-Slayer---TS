@@ -89,10 +89,17 @@ class Arena {
         
         for (let n of this.logs) {
         let logPart = document.createElement('p');
-        logPart.innerText = n; 
+        logPart.innerText = n;
+        
+        if (n[0] === "Y") {
+            logPart.style.color = "blue";
+            logPart.style.marginBottom = "2vh";
+        } else {
+            logPart.style.color = "red";
+        }
+        
         logSpace.append(logPart);
         }
-        console.log(this.logs);
     }
 
     startGame() {
