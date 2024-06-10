@@ -80,8 +80,8 @@ class Arena {
         displayPlayerHealth.innerText = `Your health: ${this.playerHealth}`;
         displayMonsterHealth.innerText = `Monster's health: ${this.monsterHealth}`;
 
-        playerHealthBar.style.background = `linear-gradient(to right, rgb(55, 0, 255) ${this.playerHealth}%, black ${this.playerHealth + 0.1}%) `;
-        monsterHealthBar.style.background = `linear-gradient(to left, rgb(255, 0, 55) ${this.monsterHealth}%, black ${this.monsterHealth - 0.1}%)`;
+        playerHealthBar.style.background = `linear-gradient(to right, rgb(98, 18, 163) ${this.playerHealth}%, black ${this.playerHealth + 0.1}%) `;
+        monsterHealthBar.style.background = `linear-gradient(to left, rgb(204, 25, 64) ${this.monsterHealth}%, black ${this.monsterHealth - 0.1}%)`;
     }
 
     updateLog() {
@@ -92,10 +92,10 @@ class Arena {
         logPart.innerText = n;
         
         if (n[0] === "Y") {
-            logPart.style.color = "blue";
+            logPart.style.color = "rgb(98, 18, 163)";
             logPart.style.marginBottom = "2vh";
         } else {
-            logPart.style.color = "red";
+            logPart.style.color = "rgb(204, 25, 64)";
         }
         
         logSpace.append(logPart);
