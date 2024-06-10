@@ -85,11 +85,11 @@ class Arena {
     }
 
     updateLog() {
-        logSpace.innerHTML = ``;
+        logSpace.innerHTML = '';
         
-        for (let n in this.logs) {
+        for (let n of this.logs) {
         let logPart = document.createElement('p');
-        logPart.innerText = this.logs[n]; 
+        logPart.innerText = n; 
         logSpace.append(logPart);
         }
     }
