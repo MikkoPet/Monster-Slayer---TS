@@ -168,6 +168,11 @@ button {
     color:rgb(86, 8, 117);
 }
 
+.gamePad p {
+    font-size: 1.8rem;
+    padding-top: 2vh;
+}
+
 .logs {
     margin-top: 5vh;
 }

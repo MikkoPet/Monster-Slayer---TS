@@ -21,6 +21,7 @@ const playerHealthBar : any = healthZone.querySelector('div:first-child');
 const monsterHealthBar : any = healthZone.querySelector('div:last-child');
 
 let logSpace : any = document.querySelector('.logs');
+let powerChargeDisplay : any = document.querySelector('.gamePad p');
 
 class Arena {
     playerHealth: number = 100;
@@ -110,6 +111,7 @@ class Arena {
 
     checkPower() {
         this.powerCharges += 1;
+        powerChargeDisplay.innerText = `Power charges for special actions: ${this.powerCharges}`;
         if (this.powerCharges >= 3) {
             specialAttackBtn.classList.replace('specialAttackButton', 'specialAttackButtonActive');
             specialHealBtn.classList.replace('specialHealBtn', 'specialHealBtnActive');
