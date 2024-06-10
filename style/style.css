@@ -7,22 +7,27 @@
     text-align: center;
 }
 
+a,
+.monsterButton {
+    color: rgb(6, 8, 41);
+    text-decoration: none;
+    background-color: rgb(247, 213, 224);
+    transition: all 100ms ease-in;
+}
+
 a {
     font-size: 1rem;
-    color: rgb(6, 41, 8);
-    text-decoration: none;
     display: block;
-    background-color: rgb(247, 213, 224);
     margin: 47vw;
     margin-top: 0.8vh;
     margin-bottom: 0.2vh;
     padding-top: 1vh;
     padding-bottom: 1vh;
     border-radius: 2.5%;
-    transition: all 100ms ease-in;
 }
+
 a:hover,
-button:hover {
+.monsterButton:hover {
     background-color: rgb(45, 24, 94);
     color: white;
     font-weight: bolder;
@@ -41,7 +46,7 @@ main {
     padding-left: 5vw;
     margin-right: 20vw;
     padding-right: 5vw;
-    margin-top: 20vh;
+    margin-top: 10vh;
     padding-top: 8vh;
     padding-bottom: 8vh;
     border-radius: 5%;
@@ -50,7 +55,7 @@ main {
 
 h1 {
     font-size: 8rem;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
     text-shadow: 13px 4px 18px rgba(241, 10, 10, 0.17),
                 14px -6px 25px rgba(58, 15, 247, 0.5),
                 -6px -7px 25px rgba(138, 31, 209, 0.32),
@@ -75,12 +80,12 @@ h1 {
 }
 
 .healthZone > div:first-child {
-    background: linear-gradient(to right, rgb(55, 0, 255) 100%, black);
+    background: linear-gradient(to right, rgb(98, 18, 163) 100%, black);
     color: rgb(183, 183, 233);
 }
 
 .healthZone > div:last-child {
-    background: linear-gradient(to left, rgb(255, 0, 0) 100%, black);
+    background: linear-gradient(to left, rgb(204, 25, 64) 100%, black);
     color: rgb(245, 157, 157);
 }
 
@@ -88,11 +93,10 @@ p {
     font-size: 3rem;
 }
 
-
 button {
-    height: 60px;
-    width: 200px;
-    font-size: 2rem;
+    height: 40px;
+    width: 160px;
+    font-size: 1.6rem;
     transition: all 100ms ease-in;
 }
 
@@ -102,13 +106,40 @@ button {
 }
 
 .specialAttackButton {
+    background-color: rgb(177, 165, 151);
+    color: grey;
+    transition: all 100ms ease-in;
+    pointer-events: none;
+}
+
+.specialAttackButtonActive {
     background-color: rgb(248, 190, 124);
     transition: all 100ms ease-in;
+    pointer-events: auto;
 }
 
 .healButton {
     background-color: rgb(152, 132, 241);
     transition: all 100ms ease-in;
+}
+
+.specialHealBtn {
+    background-color: rgb(187, 188, 190);
+    color: grey;
+    transition: all 100ms ease-in;
+    pointer-events: none;
+}
+
+.specialHealBtnActive {
+    background-color: rgb(138, 185, 255);
+    transition: all 100ms ease-in;
+    pointer-events: auto;
+}
+
+.specialHealBtn:hover,
+.specialHealBtnActive:hover {
+    background-color: rgb(51, 110, 199);
+    color: white;
 }
 
 .abandonButton {
@@ -119,25 +150,27 @@ button {
 .attackButton:hover {
     background-color: rgb(219, 106, 106);
     color: crimson;
-    width: 220px;
 }
 
-.specialAttackButton:hover {
+.specialAttackButton:hover,
+.specialAttackButtonActive:hover {
     background-color: rgb(216, 147, 68);
     color:rgb(167, 74, 8);
-    width: 220px;
 }
 
 .healButton:hover {
     background-color: rgb(102, 80, 204);
     color:rgb(76, 17, 116);
-    width: 220px;
 }
 
 .abandonButton:hover {
     background-color: rgb(153, 94, 192);
     color:rgb(86, 8, 117);
-    width: 220px;
+}
+
+.gamePad p {
+    font-size: 1.8rem;
+    padding-top: 2vh;
 }
 
 .logs {
@@ -146,4 +179,27 @@ button {
 
 .logs p {
     font-size: 1.8rem;
+}
+
+.deadMonster {
+    background-color: rgb(45, 24, 94);
+    color: white;
+    pointer-events: none;
+}
+
+.overlord {
+    background-color: rgb(45, 24, 94);
+    color: blueviolet;
+    pointer-events: none;
+}
+
+.overlordReady {
+    background-color: rgb(233, 12, 78);
+    color: rgb(213, 178, 226);
+}
+
+.warning {
+    margin-bottom: 5vh;
+    font-size: 1.8rem;
+    color: rgb(145, 14, 64);
 }

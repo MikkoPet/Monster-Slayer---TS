@@ -15,6 +15,8 @@
     </a>
     <main>
         <h1>MONSTER SLAYER</h1>
+        <p class="warning">Defeat the evil Overlord's minions, then beat HIM !!</p>
+
         <div class="healthZone">
             <div>
                 <p class="playerHealth">
@@ -29,13 +31,20 @@
         </div>
 
         <section class="gameInterface">
-            <button class="startButton">Start Game!</button>
+            <section class="startScreen">
+            <button class="easySelector monsterButton">Common wolf</button>
+            <button class="midSelector monsterButton">Lowly Ghoul</button>
+            <button class="hardSelector monsterButton">Chief Demon</button>
+            <button class="overlord">Evil Overlord</button>
+            </section>
 
             <div class="gamePad">
                 <button class="attackButton">Attack</button>
                 <button class="specialAttackButton">Special Attack</button>
                 <button class="healButton">Heal</button>
+                <button class="specialHealBtn">Special Heal</button>
                 <button class="abandonButton">Flee</button>
+                <p>Power charges for special actions: 0</p>
             </div>
         </section>
         <section class="logs">
