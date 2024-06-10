@@ -93,11 +93,10 @@ p {
     font-size: 3rem;
 }
 
-
 button {
-    height: 60px;
-    width: 200px;
-    font-size: 2rem;
+    height: 40px;
+    width: 160px;
+    font-size: 1.6rem;
     transition: all 100ms ease-in;
 }
 
@@ -107,14 +106,40 @@ button {
 }
 
 .specialAttackButton {
-    background-color: rgb(248, 190, 124);
+    background-color: rgb(177, 165, 151);
+    color: grey;
     transition: all 100ms ease-in;
     pointer-events: none;
+}
+
+.specialAttackButtonActive {
+    background-color: rgb(248, 190, 124);
+    transition: all 100ms ease-in;
+    pointer-events: auto;
 }
 
 .healButton {
     background-color: rgb(152, 132, 241);
     transition: all 100ms ease-in;
+}
+
+.specialHealBtn {
+    background-color: rgb(187, 188, 190);
+    color: grey;
+    transition: all 100ms ease-in;
+    pointer-events: none;
+}
+
+.specialHealBtnActive {
+    background-color: rgb(138, 185, 255);
+    transition: all 100ms ease-in;
+    pointer-events: auto;
+}
+
+.specialHealBtn:hover,
+.specialHealBtnActive:hover {
+    background-color: rgb(51, 110, 199);
+    color: white;
 }
 
 .abandonButton {
@@ -127,7 +152,8 @@ button {
     color: crimson;
 }
 
-.specialAttackButton:hover {
+.specialAttackButton:hover,
+.specialAttackButtonActive:hover {
     background-color: rgb(216, 147, 68);
     color:rgb(167, 74, 8);
 }

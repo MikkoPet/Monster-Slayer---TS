@@ -11,7 +11,7 @@ const overlord : any = document.querySelector('.overlord');
 const attackBtn: any = document.querySelector(".attackButton");
 const specialAttackBtn: any = document.querySelector(".specialAttackButton");
 const healBtn: any = document.querySelector(".healButton");
-const specialHeal: any = document.querySelector(".specialHealBtn");
+const specialHealBtn: any = document.querySelector(".specialHealBtn");
 const abandonBtn: any = document.querySelector(".abandonButton");
 
 const displayPlayerHealth: any = document.querySelector(".playerHealth");
@@ -55,12 +55,13 @@ class Arena {
     playerSpecialAttack() {
         this.powerCharges -= 3;
         if (this.powerCharges < 3) {
-            specialAttackBtn.style.pointerEvents = "none"
+            specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
+            specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
         }
 
         let playerPotency = this.defineDamage(10, 20);
         this.monsterHealth -= playerPotency;
-        this.logs.unshift(`You attack the monster with all your might, causing ${playerPotency} damage!`)
+        this.logs.unshift(`You attack the monster with all your might, causing ${playerPotency} damage!`);
         if (this.checkEnemyHealth()) { return; };
         this.monsterAttack();
     }
@@ -68,17 +69,18 @@ class Arena {
     playerSpecialHeal() {
         this.powerCharges -= 3;
         if (this.powerCharges < 3) {
-            specialAttackBtn.style.pointerEvents = "none"
+            specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
+            specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
         }
 
         this.playerHealth <= 50 ? this.playerHealth += 50 : this.playerHealth = 100;
-        this.logs.unshift(`Your desperation fuels your healing magic, restoring 50 health!`)
+        this.logs.unshift(`Your desperation fuels your healing magic, restoring 50 health!`);
         this.monsterAttack();
     }
 
     playerHeal() {
         this.playerHealth <= 90 ? this.playerHealth += 10 : this.playerHealth = 100;
-        this.logs.unshift(`You heal yourself for 10 health!`)
+        this.logs.unshift(`You heal yourself for 10 health!`);
         this.monsterAttack();
     }
 
@@ -109,7 +111,8 @@ class Arena {
     checkPower() {
         this.powerCharges += 1;
         if (this.powerCharges >= 3) {
-            specialAttackBtn.style.pointerEvents = "auto"
+            specialAttackBtn.classList.replace('specialAttackButton', 'specialAttackButtonActive');
+            specialHealBtn.classList.replace('specialHealBtn', 'specialHealBtnActive');
         }
     }
 
@@ -218,7 +221,7 @@ let game = new Arena;
 attackBtn.addEventListener('click', () => game.playerAttack());
 specialAttackBtn.addEventListener('click', () => game.playerSpecialAttack());
 healBtn.addEventListener('click', () => game.playerHeal());
-specialHeal.addEventListener('click', () => game.playerSpecialHeal());
+specialHealBtn.addEventListener('click', () => game.playerSpecialHeal());
 abandonBtn.addEventListener('click', () => game.abandon());
 
 gamePad.style.display = 'none';
