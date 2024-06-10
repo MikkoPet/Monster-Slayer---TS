@@ -51,7 +51,7 @@ class Arena {
     }
 
     playerHeal() {
-        this.playerHealth += 10;
+        this.playerHealth <= 90 ? this.playerHealth += 10 : this.playerHealth = 100;
         this.logs.unshift(`You heal yourself for 10 health!`)
         this.monsterAttack();
     }
@@ -86,6 +86,8 @@ class Arena {
 
     updateLog() {
         logSpace.innerHTML = '';
+
+        if (this.logs.length > 20) {this.logs.length = 20};
         
         for (let n of this.logs) {
         let logPart = document.createElement('p');
