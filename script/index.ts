@@ -92,6 +92,7 @@ class Arena {
         logPart.innerText = n; 
         logSpace.append(logPart);
         }
+        console.log(this.logs);
     }
 
     startGame() {
