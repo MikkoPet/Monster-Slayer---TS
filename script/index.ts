@@ -1,4 +1,4 @@
-const gameInterface: any = document.querySelector(".gameInterface");
+const gameInterface : any = document.querySelector(".gameInterface");
 
 const startScreen: any = document.querySelector('.startScreen');
 const gamePad : any = document.querySelector('.gamePad');
@@ -187,6 +187,16 @@ class Arena {
         logSpace.innerHTML = '';
     }
 
+    returnToMain() {
+        this.updateHealthDisplay();        
+        startScreen.style.display = "inline"
+        gamePad.style.display = "none"
+        this.killCharges += 1;
+        if ( this.killCharges === 3 ) {
+            overlord.classList.replace('overlord', 'overlordReady');
+        }
+    }
+
     restartGame() {
         this.playerHealth = 100;
         this.monsterHealth = 100;
@@ -197,16 +207,6 @@ class Arena {
         this.resetStyle();
 
         return true;
-    }
-
-    returnToMain() {
-        this.updateHealthDisplay();        
-        startScreen.style.display = "inline"
-        gamePad.style.display = "none"
-        this.killCharges += 1;
-        if ( this.killCharges === 3 ) {
-            overlord.classList.replace('overlord', 'overlordReady');
-        }
     }
 
     resetStyle() {
