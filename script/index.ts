@@ -210,11 +210,13 @@ class Arena {
 
     restartGame() {
         this.killCharges = 0;
+
         this.playerHealth = 100;
         this.monsterHealth = 100;
         this.updateHealthDisplay();
-        startScreen.style.display = "inline"
-        gamePad.style.display = "none"
+
+        startScreen.style.display = "inline";
+        gamePad.style.display = "none";
         this.resetStyle();
 
         return true;
@@ -224,6 +226,7 @@ class Arena {
         hardSelector.classList.replace("deadMonster", "monsterButton");
         mediumSelector.classList.replace("deadMonster", "monsterButton");
         easySelector.classList.replace("deadMonster" , "monsterButton");
+        overlord.classList.replace('overlordReady', 'overlord');
     }
 }
 
