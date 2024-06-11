@@ -105,8 +105,6 @@ class Arena {
     checkPlayerHealth() {
         if (this.playerHealth <= 0) {
             alert(`The monster has slain you!`);
-            this.powerCharges = 0;
-            this.killCharges = 0;
             this.restartGame();
         }
 
@@ -195,6 +193,12 @@ class Arena {
     }
 
     returnToMain() {
+        this.powerCharges = 0;
+        this.killCharges = 0;
+        this.checkPower();
+        specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
+        specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
+
         this.updateHealthDisplay();        
         startScreen.style.display = "inline"
         gamePad.style.display = "none"
@@ -210,9 +214,6 @@ class Arena {
         this.updateHealthDisplay();
         startScreen.style.display = "inline"
         gamePad.style.display = "none"
-        this.checkPower();
-        specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
-        specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
         this.resetStyle();
 
         return true;
