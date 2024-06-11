@@ -197,6 +197,7 @@ class Arena {
     }
 
     returnToMain() {
+        this.logs = [];
 
         specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
         specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
