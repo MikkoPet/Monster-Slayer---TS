@@ -202,6 +202,8 @@ class Arena {
     restartGame() {
         this.playerHealth = 100;
         this.monsterHealth = 100;
+        this.powerCharges = 0;
+        this.killCharges = 0;
         this.updateHealthDisplay();
         startScreen.style.display = "inline"
         gamePad.style.display = "none"
