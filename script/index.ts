@@ -51,6 +51,7 @@ class Arena {
         this.logs.unshift(`You attack the monster, causing ${playerPotency} damage!`)
         if (this.checkEnemyHealth()) { return; };
         this.monsterAttack();
+        this.powerCharges += 1;
     }
 
     playerSpecialAttack() {
@@ -83,6 +84,7 @@ class Arena {
         this.playerHealth <= 90 ? this.playerHealth += 10 : this.playerHealth = 100;
         this.logs.unshift(`You heal yourself for 10 health!`);
         this.monsterAttack();
+        this.powerCharges += 1;
     }
 
     abandon() {
@@ -100,6 +102,7 @@ class Arena {
             this.returnToMain();
             return true;
         }
+        
     }
 
     checkPlayerHealth() {
@@ -108,7 +111,6 @@ class Arena {
             this.restartGame();
         }
 
-        this.powerCharges += 1;
         this.checkPower();
         
     }
