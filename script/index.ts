@@ -186,6 +186,9 @@ class Arena {
     }
 
     startGame() {
+        this.powerCharges = 0;
+        this.killCharges = 0;
+        this.checkPower();
         this.updateHealthDisplay();
         startScreen.style.display = "none"
         gamePad.style.display = "inline"
@@ -193,9 +196,7 @@ class Arena {
     }
 
     returnToMain() {
-        this.powerCharges = 0;
-        this.killCharges = 0;
-        this.checkPower();
+
         specialAttackBtn.classList.replace('specialAttackButtonActive', 'specialAttackButton');
         specialHealBtn.classList.replace('specialHealBtnActive', 'specialHealBtn');
 
